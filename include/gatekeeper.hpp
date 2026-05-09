@@ -6,37 +6,36 @@
 
 namespace stargate {
 
-struct CustodyAsset {
-    std::string client_name;
-    double aum_bn;
-    double collateral_ratio; // Target 1.2 (120%)
+struct DigitalAsset {
+    std::string ticker;
+    double quantity;
+    double spot_price;
+    double cold_storage_pct; // Target > 98% for institutional
 };
 
-struct CustodyReport {
-    std::string client;
-    double annual_fee_m;
-    std::string status;
-    double risk_factor;
+struct DigitalAudit {
+    std::string ticker;
+    double vault_value_bn;
+    std::string security_status;
+    std::string compliance_note;
 };
 
-class BNYEngine {
+class DigitalBNYEngine {
 public:
-    const double CUSTODY_FEE_BPS = 2.5; // 2.5 basis points
-
-    CustodyReport audit_custody(const CustodyAsset& asset) {
-        CustodyReport report;
-        report.client = asset.client_name;
+    DigitalAudit audit_digital_vault(const DigitalAsset& asset) {
+        DigitalAudit audit;
+        audit.ticker = asset.ticker;
+        audit.vault_value_bn = (asset.quantity * asset.spot_price) / 1e9;
         
-        // Fee = AUM * 0.00025
-        report.annual_fee_m = (asset.aum_bn * 1000.0) * (CUSTODY_FEE_BPS / 10000.0);
+        if (asset.cold_storage_pct < 98.0) {
+            audit.security_status = "CRITICAL_RISK_HOT_WALLET_EXPOSURE";
+            audit.compliance_note = "REBALANCE TO COLD STORAGE IMMEDIATELY";
+        } else {
+            audit.security_status = "INSTITUTIONAL_GRADE_SECURE";
+            audit.compliance_note = "SEC_RULE_15c3_3_COMPLIANT";
+        }
         
-        report.risk_factor = 1.5 - asset.collateral_ratio;
-        
-        if (asset.collateral_ratio < 1.1) report.status = "MARGIN_CALL_REQUIRED";
-        else if (asset.collateral_ratio < 1.2) report.status = "WATCHLIST";
-        else report.status = "SECURE_ASSET_BACKED";
-        
-        return report;
+        return audit;
     }
 };
 
