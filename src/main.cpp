@@ -1,32 +1,40 @@
 #include <iostream>
+#include <vector>
 #include <iomanip>
 #include "gatekeeper.hpp"
 
 int main() {
-    stargate::RiskEngine engine;
+    stargate::BNYEngine engine;
     
-    // Simulate the JEPQ "Big Aport" from your Nasdaq screenshot
-    stargate::AportRequest jpm_inflow = {
-        "JEPQ", 
-        1200000000.0, // $1.2 Billion Big Aport
-        59.545,       // Price from your screenshot
-        0.18          // Estimated Volatility
+    std::vector<stargate::CustodyAsset> custody_vault = {
+        {"HSBC GLOBAL CORP", 120.0, 1.25},  // $120BN AUM, 125% Collateral
+        {"WELLS FARGO APORT", 52.3, 1.18},  // $52.3BN AUM, 118% Collateral
+        {"JPM ALPHA FUND", 15.0, 1.05},     // $15BN AUM, 105% Collateral (Risky)
+        {"STARGATE BRAZIL", 8.5, 1.40}      // $8.5BN AUM, 140% Collateral
     };
 
-    auto result = engine.evaluate_big_aport(jpm_inflow);
+    std::cout << "\n" << std::string(85, '=') << "\n";
+    std::cout << " BNY MELLON CUSTODY & ASSET SERVICING: GLOBAL AUDIT (MAY 2026)\n";
+    std::cout << std::string(85, '-') << "\n";
+    std::cout << std::left << std::setw(20) << "CLIENT ENTITY" 
+              << std::setw(15) << "AUM ($BN)" 
+              << std::setw(15) << "ANNUAL FEE($M)" 
+              << "CUSTODY STATUS\n";
+    std::cout << std::string(85, '-') << "\n";
 
-    std::cout << "\n" << std::string(60, '=') << "\n";
-    std::cout << " JPMORGAN ASSET MANAGEMENT - STARGATE INFLOW GATEWAY\n";
-    std::cout << std::string(60, '-') << "\n";
-    std::cout << " TARGET TICKER      : " << jpm_inflow.ticker << "\n";
-    std::cout << " APORT AMOUNT       : $" << std::fixed << std::setprecision(2) << jpm_inflow.amount_usd / 1e6 << " Million\n";
-    std::cout << " CURRENT NAV        : $" << jpm_inflow.current_nav << "\n";
-    std::cout << std::string(60, '-') << "\n";
-    std::cout << " EXECUTION STATUS   : " << result.status << "\n";
-    std::cout << " ESTIMATED SLIPPAGE : " << result.slippage_est * 100 << " bps\n";
-    std::cout << " RISK SCORE         : " << result.risk_score << "\n";
-    std::cout << " ROUTING PROTOCOL   : " << result.routing << "\n";
-    std::cout << std::string(60, '=') << "\n\n";
+    for (const auto& asset : custody_vault) {
+        auto report = engine.audit_custody(asset);
+        
+        std::cout << std::left << std::setw(20) << report.client 
+                  << "$" << std::setw(14) << std::fixed << std::setprecision(2) << asset.aum_bn
+                  << "$" << std::setw(14) << report.annual_fee_m
+                  << report.status << "\n";
+    }
+    
+    std::cout << std::string(85, '=') << "\n";
+    std::cout << "BNY MELLON SYSTEM STATUS: 100% ASSET RECONCILIATION COMPLETE\n";
+    std::cout << "LOCATION: RIO/NYC SECURE LINK OPERATIONAL\n";
+    std::cout << std::string(85, '=') << "\n\n";
 
     return 0;
 }

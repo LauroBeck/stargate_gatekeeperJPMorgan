@@ -3,47 +3,42 @@
 
 #include <string>
 #include <vector>
-#include <map>
 
 namespace stargate {
 
-struct AportRequest {
-    std::string ticker;      // e.g., "JEPQ"
-    double amount_usd;       // e.g., 1,000,000,000.00
-    double current_nav;      // Net Asset Value ($59.54)
-    double vol_index;        // Market Volatility
+struct CustodyAsset {
+    std::string client_name;
+    double aum_bn;
+    double collateral_ratio; // Target 1.2 (120%)
 };
 
-struct AportResult {
+struct CustodyReport {
+    std::string client;
+    double annual_fee_m;
     std::string status;
-    double slippage_est;
-    double risk_score;
-    std::string routing;
+    double risk_factor;
 };
 
-class RiskEngine {
+class BNYEngine {
 public:
-    AportResult evaluate_big_aport(const AportRequest& req) {
-        AportResult res;
-        
-        // Logic: Slippage increases exponentially with trade size relative to NAV
-        // Risk Index = (Amount / NAV) * Volatility Factor
-        res.risk_score = (req.amount_usd / (req.current_nav * 1000000)) * (req.vol_index * 100);
-        res.slippage_est = (req.amount_usd / 500000000.0) * 0.05; // 5 bps per $500M
+    const double CUSTODY_FEE_BPS = 2.5; // 2.5 basis points
 
-        if (req.amount_usd > 500000000.0) { // Over $500M Aport
-            res.status = "BLOCK_TRADE_REQUIRED";
-            res.routing = "OFF_EXCHANGE_DARK_POOL";
-        } else if (res.risk_score > 50.0) {
-            res.status = "REJECTED_VOLATILITY";
-            res.routing = "NONE";
-        } else {
-            res.status = "AUTO_EXECUTE";
-            res.routing = "NASDAQ_LIT_POOL";
-        }
-        return res;
+    CustodyReport audit_custody(const CustodyAsset& asset) {
+        CustodyReport report;
+        report.client = asset.client_name;
+        
+        // Fee = AUM * 0.00025
+        report.annual_fee_m = (asset.aum_bn * 1000.0) * (CUSTODY_FEE_BPS / 10000.0);
+        
+        report.risk_factor = 1.5 - asset.collateral_ratio;
+        
+        if (asset.collateral_ratio < 1.1) report.status = "MARGIN_CALL_REQUIRED";
+        else if (asset.collateral_ratio < 1.2) report.status = "WATCHLIST";
+        else report.status = "SECURE_ASSET_BACKED";
+        
+        return report;
     }
 };
 
-} // namespace stargate
+} 
 #endif
