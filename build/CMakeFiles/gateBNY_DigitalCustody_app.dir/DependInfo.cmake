@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/stargate_gatekeeper/src/main.cpp" "CMakeFiles/gatekeeper_app.dir/src/main.cpp.o" "gcc" "CMakeFiles/gatekeeper_app.dir/src/main.cpp.o.d"
-  "" "gatekeeper_app" "gcc" "CMakeFiles/gatekeeper_app.dir/link.d"
+  "/root/stargate_gatekeeper/src/main.cpp" "CMakeFiles/gateBNY_DigitalCustody_app.dir/src/main.cpp.o" "gcc" "CMakeFiles/gateBNY_DigitalCustody_app.dir/src/main.cpp.o.d"
+  "" "gateBNY_DigitalCustody_app" "gcc" "CMakeFiles/gateBNY_DigitalCustody_app.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

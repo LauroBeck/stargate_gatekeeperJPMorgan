@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named gatekeeper_app
+# Target rules for targets named gateBNY_DigitalCustody_app
 
 # Build rule for target.
-gatekeeper_app: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gatekeeper_app
-.PHONY : gatekeeper_app
+gateBNY_DigitalCustody_app: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gateBNY_DigitalCustody_app
+.PHONY : gateBNY_DigitalCustody_app
 
 # fast build rule for target.
-gatekeeper_app/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/build
-.PHONY : gatekeeper_app/fast
+gateBNY_DigitalCustody_app/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/build
+.PHONY : gateBNY_DigitalCustody_app/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -142,7 +142,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -150,7 +150,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... gatekeeper_app"
+	@echo "... gateBNY_DigitalCustody_app"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

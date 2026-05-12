@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /root/stargate_gatekeeper/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/gatekeeper_app.dir/all
+all: CMakeFiles/gateBNY_DigitalCustody_app.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/gatekeeper_app.dir/codegen
+codegen: CMakeFiles/gateBNY_DigitalCustody_app.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/gatekeeper_app.dir/clean
+clean: CMakeFiles/gateBNY_DigitalCustody_app.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/gatekeeper_app.dir
+# Target rules for target CMakeFiles/gateBNY_DigitalCustody_app.dir
 
 # All Build rule for target.
-CMakeFiles/gatekeeper_app.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/stargate_gatekeeper/build/CMakeFiles --progress-num=1,2 "Built target gatekeeper_app"
-.PHONY : CMakeFiles/gatekeeper_app.dir/all
+CMakeFiles/gateBNY_DigitalCustody_app.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/stargate_gatekeeper/build/CMakeFiles --progress-num=1,2 "Built target gateBNY_DigitalCustody_app"
+.PHONY : CMakeFiles/gateBNY_DigitalCustody_app.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/gatekeeper_app.dir/rule: cmake_check_build_system
+CMakeFiles/gateBNY_DigitalCustody_app.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/stargate_gatekeeper/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gatekeeper_app.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gateBNY_DigitalCustody_app.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/stargate_gatekeeper/build/CMakeFiles 0
-.PHONY : CMakeFiles/gatekeeper_app.dir/rule
+.PHONY : CMakeFiles/gateBNY_DigitalCustody_app.dir/rule
 
 # Convenience name for target.
-gatekeeper_app: CMakeFiles/gatekeeper_app.dir/rule
-.PHONY : gatekeeper_app
+gateBNY_DigitalCustody_app: CMakeFiles/gateBNY_DigitalCustody_app.dir/rule
+.PHONY : gateBNY_DigitalCustody_app
 
 # codegen rule for target.
-CMakeFiles/gatekeeper_app.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/stargate_gatekeeper/build/CMakeFiles --progress-num=1,2 "Finished codegen for target gatekeeper_app"
-.PHONY : CMakeFiles/gatekeeper_app.dir/codegen
+CMakeFiles/gateBNY_DigitalCustody_app.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/root/stargate_gatekeeper/build/CMakeFiles --progress-num=1,2 "Finished codegen for target gateBNY_DigitalCustody_app"
+.PHONY : CMakeFiles/gateBNY_DigitalCustody_app.dir/codegen
 
 # clean rule for target.
-CMakeFiles/gatekeeper_app.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gatekeeper_app.dir/build.make CMakeFiles/gatekeeper_app.dir/clean
-.PHONY : CMakeFiles/gatekeeper_app.dir/clean
+CMakeFiles/gateBNY_DigitalCustody_app.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gateBNY_DigitalCustody_app.dir/build.make CMakeFiles/gateBNY_DigitalCustody_app.dir/clean
+.PHONY : CMakeFiles/gateBNY_DigitalCustody_app.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

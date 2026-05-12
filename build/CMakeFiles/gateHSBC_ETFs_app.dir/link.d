@@ -1,8 +1,8 @@
-gatekeeper_app: \
+gateHSBC_ETFs_app: \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o \
-  CMakeFiles/gatekeeper_app.dir/src/main.cpp.o \
+  CMakeFiles/gateHSBC_ETFs_app.dir/src/main.cpp.o \
   /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/15/../../../x86_64-linux-gnu/libm.so \
@@ -38,7 +38,7 @@ gatekeeper_app: \
 
 /usr/lib/gcc/x86_64-linux-gnu/15/crtbeginS.o:
 
-CMakeFiles/gatekeeper_app.dir/src/main.cpp.o:
+CMakeFiles/gateHSBC_ETFs_app.dir/src/main.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/15/libstdc++.so:
 

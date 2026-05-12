@@ -6,36 +6,33 @@
 
 namespace stargate {
 
-struct DigitalAsset {
+enum class Trend { BUY, HOLD, SELL };
+
+struct BQL_Payload {
     std::string ticker;
-    double quantity;
-    double spot_price;
-    double cold_storage_pct; // Target > 98% for institutional
+    double price;
+    double yield;
+    Trend trend;
+    std::string bny_gains;
+    std::string action;
 };
 
-struct DigitalAudit {
-    std::string ticker;
-    double vault_value_bn;
-    std::string security_status;
-    std::string compliance_note;
-};
-
-class DigitalBNYEngine {
+class TrendEngine {
 public:
-    DigitalAudit audit_digital_vault(const DigitalAsset& asset) {
-        DigitalAudit audit;
-        audit.ticker = asset.ticker;
-        audit.vault_value_bn = (asset.quantity * asset.spot_price) / 1e9;
-        
-        if (asset.cold_storage_pct < 98.0) {
-            audit.security_status = "CRITICAL_RISK_HOT_WALLET_EXPOSURE";
-            audit.compliance_note = "REBALANCE TO COLD STORAGE IMMEDIATELY";
-        } else {
-            audit.security_status = "INSTITUTIONAL_GRADE_SECURE";
-            audit.compliance_note = "SEC_RULE_15c3_3_COMPLIANT";
+    Trend calculate_trend(const std::string& ticker) {
+        if (ticker == "BK") return Trend::BUY;   // +42% EPS surge
+        if (ticker == "ITUB") return Trend::BUY;  // Yield Divergence / Oversold
+        if (ticker == "HSBA") return Trend::HOLD; // 18.7% RoTE Stabilization
+        return Trend::HOLD;
+    }
+
+    std::string trend_to_string(Trend t) {
+        switch(t) {
+            case Trend::BUY:  return "\033[1;32mBUY\033[0m";  // Bold Green
+            case Trend::HOLD: return "\033[1;33mHOLD\033[0m"; // Bold Yellow
+            case Trend::SELL: return "\033[1;31mSELL\033[0m"; // Bold Red
         }
-        
-        return audit;
+        return "N/A";
     }
 };
 

@@ -54,5 +54,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/gatekeeper_app.dir/DependInfo.cmake"
+  "CMakeFiles/gateBNY_DigitalCustody_app.dir/DependInfo.cmake"
   )

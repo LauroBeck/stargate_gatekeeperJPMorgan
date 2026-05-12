@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/gateHSBC_ETFs_app.dir/link.d CMakeFiles/gateHSBC_ETFs_app.dir/src/main.cpp.o -o gateHSBC_ETFs_app

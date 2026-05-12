@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/gateBNY_Custody_app.dir/link.d CMakeFiles/gateBNY_Custody_app.dir/src/main.cpp.o -o gateBNY_Custody_app
